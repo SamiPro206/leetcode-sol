@@ -9,7 +9,7 @@ Time Complexity:
 O(max(m, n))
 
 Space Complexity:
-O(n+m)
+O(1)
 
 Notes:
 """
@@ -27,28 +27,21 @@ class Solution(object):
         :type l2: Optional[ListNode]
         :rtype: Optional[ListNode]
         """
+        preHead = ListNode()
+        curr = preHead
+        acc = 0
 
-        def rec(l1, l2, acc=0):
-            if l1 == None and l2 == None and acc == 0: return None
-
-            # nodes value
-            l1_v = l1.val if l1 != None else 0
-            l2_v = l2.val if l2 != None else 0
-            
-            # next nodes
-            l1_n = l1.next if l1 != None else None
-            l2_n = l2.next if l2 != None else None
+        while l1 or l2 or acc != 0:
+            l1_v, l1 = (l1.val, l1.next) if l1 else (0, None)
+            l2_v, l2 = (l2.val, l2.next) if l2 else (0, None)
 
             newAdd = l1_v + l2_v + acc
-            newVal = newAdd % 10
-            newAcc = newAdd // 10
+            acc = newAdd // 10
 
-            return ListNode(
-                newVal, 
-                rec(l1_n, l2_n, newAcc)
-            )
-        return rec(l1, l2)
-
+            curr.next = ListNode(newAdd % 10)
+            curr = curr.next
+        return preHead.next
+            
 def convertToLL(l):
     if len(l) <= 0: return None
     return ListNode(l[0], convertToLL(l[1:]))
