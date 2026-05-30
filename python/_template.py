@@ -21,11 +21,11 @@ class Solution:
 
 
 def run_tests():
-    solution = Solution()
+    s = Solution()
 
     # Test 1
-    # assert solution.method(...) == ...
-
+    # assert s.method(...) == ...
+    
     # ...
 
     print("All tests passed.")
