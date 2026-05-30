@@ -12,11 +12,10 @@ Space Complexity:
 O(...)
 
 Notes:
-- TODO
 """
 
 
-class Solution:
+class Solution(object):
     pass
 
 
