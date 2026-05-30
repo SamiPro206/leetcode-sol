@@ -5,9 +5,6 @@ Difficulty: <Easy | Medium | Hard>
 Link:
 https://leetcode.com/problems/<problem-name>/
 
-Pattern:
-- TODO
-
 Time Complexity:
 O(...)
 
