@@ -6,10 +6,10 @@ Link:
 https://leetcode.com/problems/merge-k-sorted-lists/
 
 Time Complexity:
-O(...)
+O(n log(k))
 
 Space Complexity:
-O(...)
+O(n)
 
 Notes:
 """
@@ -25,12 +25,13 @@ class Solution(object):
     def merge2Lists(self, h1, h2):
         newMergedList = ListNode(0)
         curr = newMergedList
-        while (h1 or h2):
+        while (h1 and h2):
             if h1 and (not h2 or h1.val <= h2.val):
                 h1, curr.next = h1.next, h1
             else:
                 h2, curr.next = h2.next, h2
             curr = curr.next
+        curr.next = h1 if h1 else h2
         return newMergedList.next
     
     def mergeKLists(self, lists):
