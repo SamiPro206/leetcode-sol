@@ -1,6 +1,6 @@
 """
-Usage: python new_problem.py <problem_number>
-Creates a new problem file from the template in the python/ directory,
+Usage: python add.py <problem_number>
+Creates a new problem file from the template in the main/ directory,
 fetching the title, slug, difficulty, code snippet, and example tests from LeetCode.
 """
 
@@ -116,7 +116,7 @@ def build_tests(method_name, params, test_cases, outputs):
 
 def main():
     if len(sys.argv) != 2:
-        print("Usage: python new_problem.py <problem_number>")
+        print("Usage: python add.py <problem_number>")
         sys.exit(1)
 
     try:
@@ -125,7 +125,7 @@ def main():
         print(f"Error: '{sys.argv[1]}' is not a valid problem number.")
         sys.exit(1)
 
-    python_dir = os.path.join(os.path.dirname(__file__), "python")
+    python_dir = os.path.join(os.path.dirname(__file__), "main")
     pattern = os.path.join(python_dir, f"{number:04d}_*.py")
     existing = glob.glob(pattern)
 
@@ -201,7 +201,7 @@ if __name__ == "__main__":
     with open(dest, "w") as f:
         f.write(content)
 
-    print(f"Created: python/{filename}  [{difficulty}]")
+    print(f"Created: main/{filename}  [{difficulty}]")
 
 
 if __name__ == "__main__":
