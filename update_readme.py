@@ -1,0 +1,111 @@
+"""
+Scans main/*.py, extracts problem metadata from docstrings,
+and regenerates the tracker section in README.md.
+"""
+
+import glob
+import os
+import re
+
+MAIN_DIR = os.path.join(os.path.dirname(__file__), "main")
+README_PATH = os.path.join(os.path.dirname(__file__), "README.md")
+START_MARKER = "<!-- TRACKER_START -->"
+END_MARKER = "<!-- TRACKER_END -->"
+
+DIFF_ORDER = ["Easy", "Medium", "Hard"]
+DIFF_EMOJI = {"Easy": "🟢", "Medium": "🟡", "Hard": "🔴"}
+BAR_TOTAL = 20
+
+
+def parse_problem(path):
+    with open(path, encoding="utf-8") as f:
+        content = f.read()
+    m = re.search(r'Problem:\s*(\d+)\s*-\s*(.+)', content)
+    d = re.search(r'Difficulty:\s*(\w+)', content)
+    l = re.search(r'Link:\s*\n(https?://\S+)', content)
+    if not m:
+        return None
+    return {
+        "number": int(m.group(1)),
+        "title": m.group(2).strip(),
+        "difficulty": d.group(1).strip() if d else "Unknown",
+        "link": l.group(1).strip() if l else "",
+    }
+
+
+def make_bar(count, total, width=BAR_TOTAL):
+    if total == 0:
+        filled = 0
+    else:
+        filled = round(count / total * width)
+    return "█" * filled + "░" * (width - filled)
+
+
+def build_tracker(problems):
+    problems.sort(key=lambda p: p["number"])
+    total = len(problems)
+    counts = {d: sum(1 for p in problems if p["difficulty"] == d) for d in DIFF_ORDER}
+
+    lines = [
+        "## Progress tracker",
+        "",
+        f"**{total} problem{'s' if total != 1 else ''} solved**",
+        "",
+    ]
+
+    # Difficulty bars
+    for diff in DIFF_ORDER:
+        c = counts[diff]
+        emoji = DIFF_EMOJI[diff]
+        bar = make_bar(c, total)
+        lines.append(f"{emoji} **{diff}** `{bar}` {c}")
+    lines.append("")
+
+    # Problems table
+    lines += [
+        "| # | Title | Difficulty |",
+        "|---|-------|------------|",
+    ]
+    for p in problems:
+        num = p["number"]
+        title = p["title"]
+        diff = p["difficulty"]
+        link = p["link"]
+        emoji = DIFF_EMOJI.get(diff, "⚪")
+        title_cell = f"[{title}]({link})" if link else title
+        lines.append(f"| {num} | {title_cell} | {emoji} {diff} |")
+
+    lines.append("")
+    return "\n".join(lines)
+
+
+def update_readme(tracker_block):
+    with open(README_PATH, encoding="utf-8") as f:
+        content = f.read()
+
+    new_section = f"{START_MARKER}\n{tracker_block}{END_MARKER}"
+
+    if START_MARKER in content and END_MARKER in content:
+        content = re.sub(
+            re.escape(START_MARKER) + r".*?" + re.escape(END_MARKER),
+            new_section,
+            content,
+            flags=re.DOTALL,
+        )
+    else:
+        content = content.rstrip("\n") + "\n\n" + new_section + "\n"
+
+    with open(README_PATH, "w", encoding="utf-8") as f:
+        f.write(content)
+
+
+def main():
+    paths = glob.glob(os.path.join(MAIN_DIR, "*.py"))
+    problems = [p for p in (parse_problem(path) for path in paths) if p]
+    tracker = build_tracker(problems)
+    update_readme(tracker)
+    print(f"README updated — {len(problems)} problem(s) tracked.")
+
+
+if __name__ == "__main__":
+    main()
