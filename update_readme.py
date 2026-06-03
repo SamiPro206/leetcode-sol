@@ -9,6 +9,28 @@ import re
 from datetime import date
 
 MAIN_DIR = os.path.join(os.path.dirname(__file__), "main")
+
+
+def get_github_base():
+    import subprocess
+    try:
+        remote = subprocess.check_output(
+            ["git", "remote", "get-url", "origin"],
+            cwd=os.path.dirname(__file__),
+            stderr=subprocess.DEVNULL,
+        ).decode().strip()
+        # Handle both HTTPS and SSH formats:
+        # https://github.com/user/repo.git
+        # git@github.com:user/repo.git
+        remote = remote.removesuffix(".git")
+        if remote.startswith("git@"):
+            remote = re.sub(r"git@(.+?):", r"https://\1/", remote)
+        return f"{remote}/blob/main/main"
+    except Exception:
+        return "https://github.com"
+
+
+GITHUB_BASE = get_github_base()
 README_PATH = os.path.join(os.path.dirname(__file__), "README.md")
 START_MARKER = "<!-- TRACKER_START -->"
 END_MARKER = "<!-- TRACKER_END -->"
@@ -26,11 +48,13 @@ def parse_problem(path):
     l = re.search(r'Link:\s*\n(https?://\S+)', content)
     if not m:
         return None
+    filename = os.path.basename(path)
     return {
         "number": int(m.group(1)),
         "title":  m.group(2).strip(),
         "difficulty": d.group(1).strip() if d else "Unknown",
         "link":   l.group(1).strip() if l else "",
+        "impl":   f"{GITHUB_BASE}/{filename}",
     }
 
 
@@ -75,13 +99,14 @@ def build_tracker(problems):
 
     # Problems table
     lines += [
-        "| # | Title | Difficulty |",
-        "|--:|-------|------------|",
+        "| # | Title | Difficulty | Solution |",
+        "|--:|-------|------------|:--------:|",
     ]
     for p in problems:
         emoji = DIFF_COLOR.get(p["difficulty"], "⚪")
         title_cell = f"[{p['title']}]({p['link']})" if p["link"] else p["title"]
-        lines.append(f"| {p['number']} | {title_cell} | {emoji} {p['difficulty']} |")
+        impl_cell = f"[`code`]({p['impl']})"
+        lines.append(f"| {p['number']} | {title_cell} | {emoji} {p['difficulty']} | {impl_cell} |")
 
     lines.append("")
     return "\n".join(lines)
