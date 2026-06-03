@@ -203,9 +203,6 @@ if __name__ == "__main__":
 
     print(f"Created: main/{filename}  [{difficulty}]")
 
-    import update_readme
-    update_readme.main()
-
 
 if __name__ == "__main__":
     main()
