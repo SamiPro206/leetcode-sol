@@ -24,15 +24,14 @@ Once the file is created, fill in your solution. The expected outputs in each `a
 <!-- TRACKER_START -->
 ## Progress tracker
 
-**7 problems solved**
+**6 problems solved**
 
-🟢 **Easy** `██████░░░░░░░░░░░░░░` 2
-🟡 **Medium** `███████████░░░░░░░░░` 4
+🟢 **Easy** `███░░░░░░░░░░░░░░░░░` 1
+🟡 **Medium** `█████████████░░░░░░░` 4
 🔴 **Hard** `███░░░░░░░░░░░░░░░░░` 1
 
 | # | Title | Difficulty |
 |---|-------|------------|
-| 1 | [Two Sum](https://leetcode.com/problems/two-sum/) | 🟢 Easy |
 | 2 | [Add Two Numbers](https://leetcode.com/problems/add-two-numbers/) | 🟡 Medium |
 | 11 | [Container With Most Water](https://leetcode.com/problems/container-with-most-water/) | 🟡 Medium |
 | 23 | [Merge k Sorted Lists](https://leetcode.com/problems/merge-k-sorted-lists/) | 🔴 Hard |
