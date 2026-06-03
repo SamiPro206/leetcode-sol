@@ -36,8 +36,8 @@ START_MARKER = "<!-- TRACKER_START -->"
 END_MARKER = "<!-- TRACKER_END -->"
 
 DIFF_ORDER = ["Easy", "Medium", "Hard"]
-DIFF_COLOR = {"Easy":   "🟢", "Medium": "🟡", "Hard":   "🔴"}
-BAR_WIDTH = 24
+DIFF_COLOR = {"Easy": "🟢", "Medium": "🟡", "Hard": "🔴"}
+DIFF_BADGE = {"Easy": "4c8b5e", "Medium": "8b7c4c", "Hard": "8b4c4c"}
 
 
 def parse_problem(path):
@@ -58,13 +58,10 @@ def parse_problem(path):
     }
 
 
-def make_bar(count, total):
-    filled = round(count / total * BAR_WIDTH) if total else 0
-    return "█" * filled + "░" * (BAR_WIDTH - filled)
-
-
-def pct(count, total):
-    return f"{round(count / total * 100)}%" if total else "0%"
+def badge(diff, count):
+    color = DIFF_BADGE[diff]
+    label = f"{diff}%20%E2%80%93%20{count}"
+    return f"![{diff}](https://img.shields.io/badge/{label}-{color}?style=flat-square)"
 
 
 def build_tracker(problems):
@@ -73,27 +70,15 @@ def build_tracker(problems):
     counts = {d: sum(1 for p in problems if p["difficulty"] == d) for d in DIFF_ORDER}
     today = date.today().strftime("%B %d, %Y")
 
+    badges = " &nbsp; ".join(badge(d, counts[d]) for d in DIFF_ORDER)
+    total_badge = f"![Total](https://img.shields.io/badge/Total%20solved-{total}-555555?style=flat-square)"
+
     lines = [
         "## 📊 Progress tracker",
         "",
-        f"**{total} problem{'s' if total != 1 else ''} solved** &nbsp;·&nbsp; _last updated {today}_",
+        f"{total_badge} &nbsp; {badges}",
         "",
-        "```",
-    ]
-
-    # Aligned difficulty bars
-    label_w = max(len(d) for d in DIFF_ORDER)
-    count_w = len(str(total))
-    for diff in DIFF_ORDER:
-        c = counts[diff]
-        bar = make_bar(c, total)
-        p = pct(c, total)
-        label = diff.ljust(label_w)
-        count_str = str(c).rjust(count_w)
-        lines.append(f"  {label}  {bar}  {count_str} ({p})")
-
-    lines += [
-        "```",
+        f"_last updated {today}_",
         "",
     ]
 
