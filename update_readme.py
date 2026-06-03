@@ -6,6 +6,7 @@ and regenerates the tracker section in README.md.
 import glob
 import os
 import re
+from datetime import date
 
 MAIN_DIR = os.path.join(os.path.dirname(__file__), "main")
 README_PATH = os.path.join(os.path.dirname(__file__), "README.md")
@@ -13,8 +14,8 @@ START_MARKER = "<!-- TRACKER_START -->"
 END_MARKER = "<!-- TRACKER_END -->"
 
 DIFF_ORDER = ["Easy", "Medium", "Hard"]
-DIFF_EMOJI = {"Easy": "🟢", "Medium": "🟡", "Hard": "🔴"}
-BAR_TOTAL = 20
+DIFF_COLOR = {"Easy":   "🟢", "Medium": "🟡", "Hard":   "🔴"}
+BAR_WIDTH = 24
 
 
 def parse_problem(path):
@@ -27,53 +28,60 @@ def parse_problem(path):
         return None
     return {
         "number": int(m.group(1)),
-        "title": m.group(2).strip(),
+        "title":  m.group(2).strip(),
         "difficulty": d.group(1).strip() if d else "Unknown",
-        "link": l.group(1).strip() if l else "",
+        "link":   l.group(1).strip() if l else "",
     }
 
 
-def make_bar(count, total, width=BAR_TOTAL):
-    if total == 0:
-        filled = 0
-    else:
-        filled = round(count / total * width)
-    return "█" * filled + "░" * (width - filled)
+def make_bar(count, total):
+    filled = round(count / total * BAR_WIDTH) if total else 0
+    return "█" * filled + "░" * (BAR_WIDTH - filled)
+
+
+def pct(count, total):
+    return f"{round(count / total * 100)}%" if total else "0%"
 
 
 def build_tracker(problems):
     problems.sort(key=lambda p: p["number"])
     total = len(problems)
     counts = {d: sum(1 for p in problems if p["difficulty"] == d) for d in DIFF_ORDER}
+    today = date.today().strftime("%B %d, %Y")
 
     lines = [
-        "## Progress tracker",
+        "## 📊 Progress tracker",
         "",
-        f"**{total} problem{'s' if total != 1 else ''} solved**",
+        f"**{total} problem{'s' if total != 1 else ''} solved** &nbsp;·&nbsp; _last updated {today}_",
         "",
+        "```",
     ]
 
-    # Difficulty bars
+    # Aligned difficulty bars
+    label_w = max(len(d) for d in DIFF_ORDER)
+    count_w = len(str(total))
     for diff in DIFF_ORDER:
         c = counts[diff]
-        emoji = DIFF_EMOJI[diff]
         bar = make_bar(c, total)
-        lines.append(f"{emoji} **{diff}** `{bar}` {c}")
-    lines.append("")
+        p = pct(c, total)
+        label = diff.ljust(label_w)
+        count_str = str(c).rjust(count_w)
+        lines.append(f"  {label}  {bar}  {count_str} ({p})")
+
+    lines += [
+        "```",
+        "",
+    ]
 
     # Problems table
     lines += [
         "| # | Title | Difficulty |",
-        "|---|-------|------------|",
+        "|--:|-------|------------|",
     ]
     for p in problems:
-        num = p["number"]
-        title = p["title"]
-        diff = p["difficulty"]
-        link = p["link"]
-        emoji = DIFF_EMOJI.get(diff, "⚪")
-        title_cell = f"[{title}]({link})" if link else title
-        lines.append(f"| {num} | {title_cell} | {emoji} {diff} |")
+        emoji = DIFF_COLOR.get(p["difficulty"], "⚪")
+        title_cell = f"[{p['title']}]({p['link']})" if p["link"] else p["title"]
+        lines.append(f"| {p['number']} | {title_cell} | {emoji} {p['difficulty']} |")
 
     lines.append("")
     return "\n".join(lines)
