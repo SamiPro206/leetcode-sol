@@ -24,7 +24,7 @@ Once the file is created, fill in your solution. The expected outputs in each `a
 <!-- TRACKER_START -->
 ## 📊 Progress tracker
 
-![Total](https://img.shields.io/badge/Total%20solved-11-555555?style=flat-square) &nbsp; ![Easy](https://img.shields.io/badge/Easy%20%E2%80%93%203-4c8b5e?style=flat-square) &nbsp; ![Medium](https://img.shields.io/badge/Medium%20%E2%80%93%206-8b7c4c?style=flat-square) &nbsp; ![Hard](https://img.shields.io/badge/Hard%20%E2%80%93%202-8b4c4c?style=flat-square)
+![Total](https://img.shields.io/badge/Total%20solved-12-555555?style=flat-square) &nbsp; ![Easy](https://img.shields.io/badge/Easy%20%E2%80%93%203-4c8b5e?style=flat-square) &nbsp; ![Medium](https://img.shields.io/badge/Medium%20%E2%80%93%206-8b7c4c?style=flat-square) &nbsp; ![Hard](https://img.shields.io/badge/Hard%20%E2%80%93%203-8b4c4c?style=flat-square)
 
 _last updated June 06, 2026_
 
@@ -40,5 +40,6 @@ _last updated June 06, 2026_
 | 88 | [Merge Sorted Array](https://leetcode.com/problems/merge-sorted-array/) | 🟢 Easy | [`code`](https://github.com/SamiPro206/leetcode-sol/blob/main/main/0088_merge_sorted_array.py) |
 | 198 | [House Robber](https://leetcode.com/problems/house-robber/) | 🟡 Medium | [`code`](https://github.com/SamiPro206/leetcode-sol/blob/main/main/0198_house_robber.py) |
 | 787 | [Cheapest Flights Within K Stops](https://leetcode.com/problems/cheapest-flights-within-k-stops/) | 🟡 Medium | [`code`](https://github.com/SamiPro206/leetcode-sol/blob/main/main/0787_cheapest_flights_within_k_stops.py) |
+| 1235 | [Maximum Profit in Job Scheduling](https://leetcode.com/problems/maximum-profit-in-job-scheduling/) | 🔴 Hard | [`code`](https://github.com/SamiPro206/leetcode-sol/blob/main/main/1235_maximum_profit_in_job_scheduling.py) |
 | 1584 | [Min Cost to Connect All Points](https://leetcode.com/problems/min-cost-to-connect-all-points/) | 🟡 Medium | [`code`](https://github.com/SamiPro206/leetcode-sol/blob/main/main/1584_min_cost_to_connect_all_points.py) |
 <!-- TRACKER_END -->
