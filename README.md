@@ -24,7 +24,7 @@ Once the file is created, fill in your solution. The expected outputs in each `a
 <!-- TRACKER_START -->
 ## 📊 Progress tracker
 
-![Total](https://img.shields.io/badge/Total%20solved-15-555555?style=flat-square) &nbsp; ![Easy](https://img.shields.io/badge/Easy%20%E2%80%93%203-4c8b5e?style=flat-square) &nbsp; ![Medium](https://img.shields.io/badge/Medium%20%E2%80%93%208-8b7c4c?style=flat-square) &nbsp; ![Hard](https://img.shields.io/badge/Hard%20%E2%80%93%204-8b4c4c?style=flat-square)
+![Total](https://img.shields.io/badge/Total%20solved-16-555555?style=flat-square) &nbsp; ![Easy](https://img.shields.io/badge/Easy%20%E2%80%93%203-4c8b5e?style=flat-square) &nbsp; ![Medium](https://img.shields.io/badge/Medium%20%E2%80%93%209-8b7c4c?style=flat-square) &nbsp; ![Hard](https://img.shields.io/badge/Hard%20%E2%80%93%204-8b4c4c?style=flat-square)
 
 _last updated June 08, 2026_
 
@@ -40,7 +40,7 @@ _last updated June 08, 2026_
 </details>
 
 <details>
-<summary><b>🟡 Medium (8)</b></summary>
+<summary><b>🟡 Medium (9)</b></summary>
 
 | # | Title | Solution |
 |--:|-------|:--------:|
@@ -50,6 +50,7 @@ _last updated June 08, 2026_
 | 53 | [Maximum Subarray](https://leetcode.com/problems/maximum-subarray/) | [`code`](https://github.com/SamiPro206/leetcode-sol/blob/main/main/0053_maximum_subarray.py) |
 | 198 | [House Robber](https://leetcode.com/problems/house-robber/) | [`code`](https://github.com/SamiPro206/leetcode-sol/blob/main/main/0198_house_robber.py) |
 | 200 | [Number of Islands](https://leetcode.com/problems/number-of-islands/) | [`code`](https://github.com/SamiPro206/leetcode-sol/blob/main/main/0200_number_of_islands.py) |
+| 207 | [Course Schedule](https://leetcode.com/problems/course-schedule/) | [`code`](https://github.com/SamiPro206/leetcode-sol/blob/main/main/0207_course_schedule.py) |
 | 787 | [Cheapest Flights Within K Stops](https://leetcode.com/problems/cheapest-flights-within-k-stops/) | [`code`](https://github.com/SamiPro206/leetcode-sol/blob/main/main/0787_cheapest_flights_within_k_stops.py) |
 | 1584 | [Min Cost to Connect All Points](https://leetcode.com/problems/min-cost-to-connect-all-points/) | [`code`](https://github.com/SamiPro206/leetcode-sol/blob/main/main/1584_min_cost_to_connect_all_points.py) |
 
