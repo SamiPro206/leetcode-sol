@@ -24,14 +24,15 @@ Once the file is created, fill in your solution. The expected outputs in each `a
 <!-- TRACKER_START -->
 ## 📊 Progress tracker
 
-![Total](https://img.shields.io/badge/Total%20solved-13-555555?style=flat-square) &nbsp; ![Easy](https://img.shields.io/badge/Easy%20%E2%80%93%203-4c8b5e?style=flat-square) &nbsp; ![Medium](https://img.shields.io/badge/Medium%20%E2%80%93%206-8b7c4c?style=flat-square) &nbsp; ![Hard](https://img.shields.io/badge/Hard%20%E2%80%93%204-8b4c4c?style=flat-square)
+![Total](https://img.shields.io/badge/Total%20solved-14-555555?style=flat-square) &nbsp; ![Easy](https://img.shields.io/badge/Easy%20%E2%80%93%203-4c8b5e?style=flat-square) &nbsp; ![Medium](https://img.shields.io/badge/Medium%20%E2%80%93%207-8b7c4c?style=flat-square) &nbsp; ![Hard](https://img.shields.io/badge/Hard%20%E2%80%93%204-8b4c4c?style=flat-square)
 
-_last updated June 06, 2026_
+_last updated June 08, 2026_
 
 | # | Title | Difficulty | Solution |
 |--:|-------|------------|:--------:|
 | 1 | [Two Sum](https://leetcode.com/problems/two-sum/) | 🟢 Easy | [`code`](https://github.com/SamiPro206/leetcode-sol/blob/main/main/0001_two_sum.py) |
 | 2 | [Add Two Numbers](https://leetcode.com/problems/add-two-numbers/) | 🟡 Medium | [`code`](https://github.com/SamiPro206/leetcode-sol/blob/main/main/0002_add_two_numbers.py) |
+| 3 | [Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/) | 🟡 Medium | [`code`](https://github.com/SamiPro206/leetcode-sol/blob/main/main/0003_longest_substring_without_repeating_characters.py) |
 | 11 | [Container With Most Water](https://leetcode.com/problems/container-with-most-water/) | 🟡 Medium | [`code`](https://github.com/SamiPro206/leetcode-sol/blob/main/main/0011_container_with_most_water.py) |
 | 23 | [Merge k Sorted Lists](https://leetcode.com/problems/merge-k-sorted-lists/) | 🔴 Hard | [`code`](https://github.com/SamiPro206/leetcode-sol/blob/main/main/0023_merge_k_sorted_lists.py) |
 | 42 | [Trapping Rain Water](https://leetcode.com/problems/trapping-rain-water/) | 🔴 Hard | [`code`](https://github.com/SamiPro206/leetcode-sol/blob/main/main/0042_trapping_rain_water.py) |
