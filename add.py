@@ -124,7 +124,7 @@ def build_tests(method_name, params, test_cases, outputs):
             name = param["name"]
             lines.append(f"    {name} = {value}")
             call_args.append(name)
-        call = f"s.{method_name}({', '.join(call_args)})"
+        call = f"sol.{method_name}({', '.join(call_args)})"
         lines.append(f"    assert {call} == {expected}")
         lines.append("")
     lines.append('    print("All tests passed.")')
@@ -203,7 +203,7 @@ Notes:
 
 
 def run_tests():
-    s = Solution()
+    sol = Solution()
 
 {tests_body}
 
