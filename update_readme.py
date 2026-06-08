@@ -82,18 +82,25 @@ def build_tracker(problems):
         "",
     ]
 
-    # Problems table
-    lines += [
-        "| # | Title | Difficulty | Solution |",
-        "|--:|-------|------------|:--------:|",
-    ]
-    for p in problems:
-        emoji = DIFF_COLOR.get(p["difficulty"], "⚪")
-        title_cell = f"[{p['title']}]({p['link']})" if p["link"] else p["title"]
-        impl_cell = f"[`code`]({p['impl']})"
-        lines.append(f"| {p['number']} | {title_cell} | {emoji} {p['difficulty']} | {impl_cell} |")
+    # One collapsible section per difficulty
+    for diff in DIFF_ORDER:
+        group = [p for p in problems if p["difficulty"] == diff]
+        if not group:
+            continue
+        emoji = DIFF_COLOR[diff]
+        lines.append(f"<details>")
+        lines.append(f"<summary><b>{emoji} {diff} ({len(group)})</b></summary>")
+        lines.append("")
+        lines.append("| # | Title | Solution |")
+        lines.append("|--:|-------|:--------:|")
+        for p in group:
+            title_cell = f"[{p['title']}]({p['link']})" if p["link"] else p["title"]
+            impl_cell  = f"[`code`]({p['impl']})"
+            lines.append(f"| {p['number']} | {title_cell} | {impl_cell} |")
+        lines.append("")
+        lines.append("</details>")
+        lines.append("")
 
-    lines.append("")
     return "\n".join(lines)
 
 
