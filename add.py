@@ -77,14 +77,31 @@ def fetch_details(slug):
 
 def parse_outputs(html):
     """Extract expected output values from the problem HTML content."""
-    blocks = re.findall(r"<pre>(.*?)</pre>", html, re.DOTALL)
     outputs = []
+
+    # New format: <div class="example-block"> with <span class="example-io">
+    new_blocks = re.findall(r'<div class="example-block">(.*?)</div>', html, re.DOTALL)
+    for block in new_blocks:
+        m = re.search(r"<strong>Output:</strong>\s*<span[^>]*>(.*?)</span>", block, re.DOTALL)
+        if not m:
+            continue
+        raw = re.sub(r"<[^>]+>", "", m.group(1)).strip()
+        normalized = raw.replace("true", "True").replace("false", "False").replace("null", "None")
+        try:
+            outputs.append(repr(ast.literal_eval(normalized)))
+        except Exception:
+            outputs.append(repr(raw))
+
+    if outputs:
+        return outputs
+
+    # Old format: <pre> blocks
+    blocks = re.findall(r"<pre>(.*?)</pre>", html, re.DOTALL)
     for block in blocks:
         m = re.search(r"<strong>Output:</strong>\s*(.+)", block)
         if not m:
             continue
         raw = re.sub(r"<[^>]+>", "", m.group(1)).strip()
-        # Normalize JSON booleans/null to Python equivalents
         normalized = raw.replace("true", "True").replace("false", "False").replace("null", "None")
         try:
             outputs.append(repr(ast.literal_eval(normalized)))
