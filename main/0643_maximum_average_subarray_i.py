@@ -6,10 +6,10 @@ Link:
 https://leetcode.com/problems/maximum-average-subarray-i/
 
 Time Complexity:
-O(...)
+O(n)
 
 Space Complexity:
-O(...)
+O(n)
 
 Notes:
 """
