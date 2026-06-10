@@ -24,7 +24,7 @@ Once the file is created, fill in your solution. The expected outputs in each `a
 <!-- TRACKER_START -->
 ## 📊 Progress tracker
 
-![Total](https://img.shields.io/badge/Total%20solved-17-555555?style=flat-square) &nbsp; ![Easy](https://img.shields.io/badge/Easy%20%E2%80%93%203-4c8b5e?style=flat-square) &nbsp; ![Medium](https://img.shields.io/badge/Medium%20%E2%80%93%2010-8b7c4c?style=flat-square) &nbsp; ![Hard](https://img.shields.io/badge/Hard%20%E2%80%93%204-8b4c4c?style=flat-square)
+![Total](https://img.shields.io/badge/Total%20solved-18-555555?style=flat-square) &nbsp; ![Easy](https://img.shields.io/badge/Easy%20%E2%80%93%203-4c8b5e?style=flat-square) &nbsp; ![Medium](https://img.shields.io/badge/Medium%20%E2%80%93%2011-8b7c4c?style=flat-square) &nbsp; ![Hard](https://img.shields.io/badge/Hard%20%E2%80%93%204-8b4c4c?style=flat-square)
 
 _last updated June 10, 2026_
 
@@ -40,7 +40,7 @@ _last updated June 10, 2026_
 </details>
 
 <details>
-<summary><b>🟡 Medium (10)</b></summary>
+<summary><b>🟡 Medium (11)</b></summary>
 
 | # | Title | Solution |
 |--:|-------|:--------:|
@@ -48,6 +48,7 @@ _last updated June 10, 2026_
 | 3 | [Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/) | [`code`](https://github.com/SamiPro206/leetcode-sol/blob/main/main/0003_longest_substring_without_repeating_characters.py) |
 | 11 | [Container With Most Water](https://leetcode.com/problems/container-with-most-water/) | [`code`](https://github.com/SamiPro206/leetcode-sol/blob/main/main/0011_container_with_most_water.py) |
 | 53 | [Maximum Subarray](https://leetcode.com/problems/maximum-subarray/) | [`code`](https://github.com/SamiPro206/leetcode-sol/blob/main/main/0053_maximum_subarray.py) |
+| 152 | [Maximum Product Subarray](https://leetcode.com/problems/maximum-product-subarray/) | [`code`](https://github.com/SamiPro206/leetcode-sol/blob/main/main/0152_maximum_product_subarray.py) |
 | 198 | [House Robber](https://leetcode.com/problems/house-robber/) | [`code`](https://github.com/SamiPro206/leetcode-sol/blob/main/main/0198_house_robber.py) |
 | 200 | [Number of Islands](https://leetcode.com/problems/number-of-islands/) | [`code`](https://github.com/SamiPro206/leetcode-sol/blob/main/main/0200_number_of_islands.py) |
 | 207 | [Course Schedule](https://leetcode.com/problems/course-schedule/) | [`code`](https://github.com/SamiPro206/leetcode-sol/blob/main/main/0207_course_schedule.py) |
