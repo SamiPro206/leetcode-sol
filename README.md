@@ -24,18 +24,19 @@ Once the file is created, fill in your solution. The expected outputs in each `a
 <!-- TRACKER_START -->
 ## 📊 Progress tracker
 
-![Total](https://img.shields.io/badge/Total%20solved-18-555555?style=flat-square) &nbsp; ![Easy](https://img.shields.io/badge/Easy%20%E2%80%93%203-4c8b5e?style=flat-square) &nbsp; ![Medium](https://img.shields.io/badge/Medium%20%E2%80%93%2011-8b7c4c?style=flat-square) &nbsp; ![Hard](https://img.shields.io/badge/Hard%20%E2%80%93%204-8b4c4c?style=flat-square)
+![Total](https://img.shields.io/badge/Total%20solved-19-555555?style=flat-square) &nbsp; ![Easy](https://img.shields.io/badge/Easy%20%E2%80%93%204-4c8b5e?style=flat-square) &nbsp; ![Medium](https://img.shields.io/badge/Medium%20%E2%80%93%2011-8b7c4c?style=flat-square) &nbsp; ![Hard](https://img.shields.io/badge/Hard%20%E2%80%93%204-8b4c4c?style=flat-square)
 
 _last updated June 10, 2026_
 
 <details>
-<summary><b>🟢 Easy (3)</b></summary>
+<summary><b>🟢 Easy (4)</b></summary>
 
 | # | Title | Solution |
 |--:|-------|:--------:|
 | 1 | [Two Sum](https://leetcode.com/problems/two-sum/) | [`code`](https://github.com/SamiPro206/leetcode-sol/blob/main/main/0001_two_sum.py) |
 | 70 | [Climbing Stairs](https://leetcode.com/problems/climbing-stairs/) | [`code`](https://github.com/SamiPro206/leetcode-sol/blob/main/main/0070_climbing_stairs.py) |
 | 88 | [Merge Sorted Array](https://leetcode.com/problems/merge-sorted-array/) | [`code`](https://github.com/SamiPro206/leetcode-sol/blob/main/main/0088_merge_sorted_array.py) |
+| 643 | [Maximum Average Subarray I](https://leetcode.com/problems/maximum-average-subarray-i/) | [`code`](https://github.com/SamiPro206/leetcode-sol/blob/main/main/0643_maximum_average_subarray_i.py) |
 
 </details>
 
