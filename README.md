@@ -24,9 +24,9 @@ Once the file is created, fill in your solution. The expected outputs in each `a
 <!-- TRACKER_START -->
 ## 📊 Progress tracker
 
-![Total](https://img.shields.io/badge/Total%20solved-21-555555?style=flat-square) &nbsp; ![Easy](https://img.shields.io/badge/Easy%20%E2%80%93%205-4c8b5e?style=flat-square) &nbsp; ![Medium](https://img.shields.io/badge/Medium%20%E2%80%93%2012-8b7c4c?style=flat-square) &nbsp; ![Hard](https://img.shields.io/badge/Hard%20%E2%80%93%204-8b4c4c?style=flat-square)
+![Total](https://img.shields.io/badge/Total%20solved-22-555555?style=flat-square) &nbsp; ![Easy](https://img.shields.io/badge/Easy%20%E2%80%93%205-4c8b5e?style=flat-square) &nbsp; ![Medium](https://img.shields.io/badge/Medium%20%E2%80%93%2012-8b7c4c?style=flat-square) &nbsp; ![Hard](https://img.shields.io/badge/Hard%20%E2%80%93%205-8b4c4c?style=flat-square)
 
-_last updated June 11, 2026_
+_last updated June 20, 2026_
 
 <details>
 <summary><b>🟢 Easy (5)</b></summary>
@@ -62,7 +62,7 @@ _last updated June 11, 2026_
 </details>
 
 <details>
-<summary><b>🔴 Hard (4)</b></summary>
+<summary><b>🔴 Hard (5)</b></summary>
 
 | # | Title | Solution |
 |--:|-------|:--------:|
@@ -70,6 +70,7 @@ _last updated June 11, 2026_
 | 42 | [Trapping Rain Water](https://leetcode.com/problems/trapping-rain-water/) | [`code`](https://github.com/SamiPro206/leetcode-sol/blob/main/main/0042_trapping_rain_water.py) |
 | 329 | [Longest Increasing Path in a Matrix](https://leetcode.com/problems/longest-increasing-path-in-a-matrix/) | [`code`](https://github.com/SamiPro206/leetcode-sol/blob/main/main/0329_longest_increasing_path_in_a_matrix.py) |
 | 1235 | [Maximum Profit in Job Scheduling](https://leetcode.com/problems/maximum-profit-in-job-scheduling/) | [`code`](https://github.com/SamiPro206/leetcode-sol/blob/main/main/1235_maximum_profit_in_job_scheduling.py) |
+| 1751 | [Maximum Number of Events That Can Be Attended II](https://leetcode.com/problems/maximum-number-of-events-that-can-be-attended-ii/) | [`code`](https://github.com/SamiPro206/leetcode-sol/blob/main/main/1751_maximum_number_of_events_that_can_be_attended_ii.py) |
 
 </details>
 <!-- TRACKER_END -->
